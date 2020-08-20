@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace repository_pattern.domain.Account.Aggregate
 {
@@ -9,6 +10,9 @@ namespace repository_pattern.domain.Account.Aggregate
 		public string Email { get; set; }
 		public string CPF { get; set; }
 		public DateTime DtBirthday { get; set; }
+
+		public IList<UserAddress> Addresses { get; set; }
+		public IList<UserPhone> Phones { get; set; }
 
 	}
 }
