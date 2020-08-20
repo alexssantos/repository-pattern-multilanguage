@@ -12,8 +12,13 @@ Tecnica usada para primeiro criar o codigo e depois gerar o banco a partir do co
 cmd: dotnet tool install --global dotnet-ef
 
 - Criar as Migrações:
+IMPORTATNTE: Precisa estar dentro da pasta do projeto Repositorio
 ir para a pasta do projeto .\repository-pattern.repository
 cmd: dotnet ef migrations add InitialDatabase --startup-project ..\repository-pattern.api -v
 
 > para desfazer 
 cmd: ef migrations remove
+
+- Aplicar as migrações
+obs: nao precisa estar dentro da pasta do projeto repositorio. 
+cmd: dotnet ef database update --startup-project ..\repository-pattern.api -v
