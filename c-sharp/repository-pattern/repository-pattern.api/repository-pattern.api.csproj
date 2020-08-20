@@ -5,5 +5,13 @@
     <RootNamespace>repository_pattern.api</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\repository-pattern.repository\repository-pattern.repository.csproj" />
+  </ItemGroup>
+
 
 </Project>
