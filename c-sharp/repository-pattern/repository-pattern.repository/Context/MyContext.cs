@@ -25,6 +25,7 @@ namespace repository_pattern.repository.Context
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
+			optionsBuilder.UseLoggerFactory(_loggerFactory);
 			base.OnConfiguring(optionsBuilder);
 		}
 

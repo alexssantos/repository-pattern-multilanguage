@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using repository_pattern.domain.Account.Aggregate.Repository;
 using repository_pattern.repository.Context;
+using repository_pattern.repository.Repository;
 
 namespace repository_pattern.api
 {
@@ -20,6 +22,8 @@ namespace repository_pattern.api
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddTransient<IUserAccountRepository, UserAccountRepository>();
+
 			services.AddDbContext<MyContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("MyConnString")
 			));

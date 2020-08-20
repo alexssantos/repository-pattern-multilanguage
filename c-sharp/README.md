@@ -5,6 +5,10 @@ A repository with examples of Repository Pattern implementation in some programm
 - code first com EF Core
 Tecnica usada para primeiro criar o codigo e depois gerar o banco a partir do codigo.
 
+#Mapeamento com FluentAPI
+- De acordo com as boas praticas, evitar sujar a camiada de dominio com questoes de infraestrutura acompanahando a arquitetura hexagonal ou de cebola (Onion Archtecture)
+- Prejudica quem tem mania de usar anotações e está aconstumado com a facilidade de abrir a classe de dominio e ver onde ela está mapeada.
+
 # Migrations
 - Ajuda ao time de DevOps quando ha alterações no banco de dados mantendo uma versão e um melhor controle de alteração.
 
