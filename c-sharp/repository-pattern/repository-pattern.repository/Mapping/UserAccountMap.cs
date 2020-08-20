@@ -9,7 +9,7 @@ namespace repository_pattern.repository.Mapping
 	{
 		public void Configure(EntityTypeBuilder<UserAccount> builder)
 		{
-
+			builder.ToTable("UserAccount");
 
 			builder.HasKey(x => x.Id);
 			builder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();

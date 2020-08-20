@@ -8,6 +8,9 @@ namespace repository_pattern.repository.Mapping
 	{
 		public void Configure(EntityTypeBuilder<UserPhone> builder)
 		{
+			builder.ToTable("UserPhone");
+
+
 			builder.HasKey(x => x.Id);
 			builder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
 			builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(255);

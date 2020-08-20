@@ -8,6 +8,8 @@ namespace repository_pattern.repository.Mapping
 	{
 		public void Configure(EntityTypeBuilder<UserAddress> builder)
 		{
+			builder.ToTable("UserAddress");
+
 			builder.HasKey(x => x.Id);
 			builder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
 			builder.Property(x => x.Address).IsRequired();

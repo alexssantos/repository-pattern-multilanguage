@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using repository_pattern.domain.Account.Aggregate;
+using repository_pattern.repository.Mapping;
 
 namespace repository_pattern.repository.Context
 {
@@ -12,6 +13,10 @@ namespace repository_pattern.repository.Context
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
+			builder.ApplyConfiguration(new UserAccountMap());
+			builder.ApplyConfiguration(new UserAddressMap());
+			builder.ApplyConfiguration(new UserPhoneMap());
+
 			base.OnModelCreating(builder);
 		}
 
