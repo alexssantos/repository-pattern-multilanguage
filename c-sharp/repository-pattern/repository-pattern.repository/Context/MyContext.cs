@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using repository_pattern.domain.Account.Aggregate;
 using repository_pattern.repository.Mapping;
 
@@ -6,6 +7,8 @@ namespace repository_pattern.repository.Context
 {
 	public class MyContext : DbContext
 	{
+		public static readonly ILoggerFactory _loggerFactory = LoggerFactory
+			.Create(builder => builder.AddConsole());
 		public MyContext(DbContextOptions<MyContext> options) : base(options)
 		{
 
