@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using repository_pattern.domain;
 using repository_pattern.repository.Context;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace repository_pattern.repository.Repository
@@ -60,14 +58,14 @@ namespace repository_pattern.repository.Repository
 			this.Context.SaveChanges();
 		}
 
-		public async Task<IList<T>> GetAllByCriteria(Expression<Func<T, bool>> expr)
+		public async Task<IList<T>> GetAllByCriteria(ISpecification<T> expr)
 		{
-			return await Query.Where(expr).ToListAsync();
+			return await Query.Where(expr.SatisfyByCriteria()).ToListAsync();
 		}
 
-		public Task<T> GetOneByCriteria(Expression<Func<T, bool>> expr)
+		public Task<T> GetOneByCriteria(ISpecification<T> expr)
 		{
-			return Query.FirstOrDefaultAsync(expr);
+			return Query.FirstOrDefaultAsync(expr.SatisfyByCriteria());
 		}
 	}
 }

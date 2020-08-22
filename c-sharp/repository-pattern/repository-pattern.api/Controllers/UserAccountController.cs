@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using repository_pattern.domain.Account.Aggregate.Repository;
+using repository_pattern.domain.Account.Aggregate.Specification;
+using System.Threading.Tasks;
 
 namespace repository_pattern.api.Controllers
 {
@@ -17,9 +19,17 @@ namespace repository_pattern.api.Controllers
 
 		[Route("")]
 		[HttpGet]
-		public ActionResult GetAll()
+		public async Task<ActionResult> GetAll()
 		{
-			return Ok(_repoUserAccount.GetAll());
+			return Ok(await _repoUserAccount.GetAll());
+		}
+
+		[Route("{cpf}")]
+		[HttpGet]
+		public async Task<ActionResult> GetAll(string cpf)
+		{
+			return Ok(await this._repoUserAccount.GetAllByCriteria(
+				UserAccountSpecification.GetAllByCPF(cpf)));
 		}
 	}
 }

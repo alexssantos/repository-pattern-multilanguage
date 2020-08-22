@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace repository_pattern.domain
@@ -12,7 +10,7 @@ namespace repository_pattern.domain
 		Task Save(T obj);
 		Task Update(object id, T obj);
 		Task Delete(object id);
-		Task<T> GetOneByCriteria(Expression<Func<T, bool>> expr);
-		Task<IList<T>> GetAllByCriteria(Expression<Func<T, bool>> expr);
+		Task<T> GetOneByCriteria(ISpecification<T> expr);
+		Task<IList<T>> GetAllByCriteria(ISpecification<T> expr);
 	}
 }
